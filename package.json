@@ -1,20 +1,15 @@
 {
   "name": "meu-backend",
   "version": "1.0.0",
+  "description": "Servidor simples Node.js para app de pressão arterial",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.50.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.0.1",
-    "express": "^5.1.0",
     "start": "node index.js"
   },
-  "devDependencies": {},
-  "description": ""
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "@supabase/supabase-js": "^2.33.1"
+  }
 }
