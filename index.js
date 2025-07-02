@@ -14,6 +14,16 @@ app.get('/', (req, res) => {
   res.send('Servidor funcionando!');
 });
 
+// Rota de Senha
+app.post('/login', (req, res) => {
+  const { senha } = req.body;
+  if (senha === process.env.APP_PASSWORD) {
+    res.json({ autorizado: true });
+  } else {
+    res.status(401).json({ autorizado: false });
+  }
+});
+
 // Rota para registrar pressão arterial
 app.post('/registrar', async (req, res) => {
   const { sistolica, diastolica, observacao } = req.body;
