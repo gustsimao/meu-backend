@@ -8,6 +8,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Suas rotas aqui...
+
+const port = process.env.PORT || 3000; // Usa a porta do ambiente ou 3000 como fallback
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
+
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 app.post('/registrar', async (req, res) => {
