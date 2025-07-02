@@ -50,7 +50,7 @@ app.get('/dados', async (req, res) => {
     return res.status(500).json({ erro: 'Erro ao buscar dados', detalhes: error });
   }
 
-  res.json(data);
+  res.json(data); // <-- resposta é um array direto, não um objeto { data }
 });
 
 // Inicialização do servidor
