@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+const supabaseClient = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
 
 // Rota de teste
 app.get('/', (req, res) => {
@@ -28,7 +28,7 @@ app.post('/login', (req, res) => {
 app.post('/registrar', async (req, res) => {
   const { sistolica, diastolica, observacao } = req.body;
 
-  const { error } = await supabase
+  const { error } = await supabaseClient
     .from('pressao')
     .insert([{ data: new Date().toISOString(), sistolica, diastolica, observacao }]);
 
@@ -41,7 +41,7 @@ app.post('/registrar', async (req, res) => {
 
 // Rota para buscar todos os dados
 app.get('/dados', async (req, res) => {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from('pressao')
     .select('*')
     .order('data', { ascending: true });
